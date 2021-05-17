@@ -1,22 +1,79 @@
 <html xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <title>Tarot Reading - Home Page</title>
-    <link href="webjars/bootstrap/5.0.0/css/bootstrap.min.css" rel="stylesheet">
-    <script src="webjars/jquery/3.5.1/jquery.min.js"></script>
+    <link th:href="@{webjars/bootstrap/5.0.0/css/bootstrap.min.css}" rel="stylesheet"/>
+    <link th:href="@{webjars/font-awesome/5.15.2/css/all.css}" rel="stylesheet"/>
+
 </head>
 <body>
 <div class="container">
     <h1>Tarot reading - PDF generator</h1>
-    <p>Welcome to tarot reading PDF generator!</p>
     <p>Just add the reading details and a PDF will be generated. </p>
 
-    <div class="customer">
-        Customer details here
-    </div>
+    <form action="#" th:object="${reading}" method="post">
+        <div class="reading-info">
+            <div class="mb-3">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" required th:field="*{name}"/>
+            </div>
 
-    <div class="reading">
-        Reading details here
-    </div>
+            <div class="mb-3">
+                <label for="date">Date</label>
+                <input type="text" class="form-control" id="date" placeholder="dd/mm/yyyy" th:field="*{date}"
+                       required/>
+            </div>
+
+            <div class="mb-3">
+                <label for="reading-photo" class="form-label">Upload the reading photo</label>
+                <input class="form-control" type="file" id="reading-photo">
+            </div>
+        </div>
+
+        <!-- Dynamic content -->
+
+        <div class="reading-questions border border-info" style="padding: 10px;">
+            <div class="questions-header">
+                Question
+
+                <button type="button" class="btn btn-success" name="addQuestion"
+                        data-dynamic-update-rows-url="addQuestion">
+                    <i class="fas fa-plus"></i>
+                </button>
+            </div>
+
+
+            <!--Question group -->
+            <div class="question-body">
+
+                <div class="question-content" th:fragment="questions" th:each="question, rowStat : ${reading.questions}">
+                    <span th:text="${rowStat.count}"></span>
+
+                    <div class="mb-3">
+                        <label for="cards-${rowStat.index}">Cards</label>
+                        <input type="text" class="form-control" id="cards-${rowStat.index}" th:field="${reading.questions[__${rowStat.index}__].cards}"
+                               required/>
+                    </div>
+                    <div class="mb-3">
+                        <label for="comment-${rowStat.index}">Comment</label>
+                        <input type="text" class="form-control" id="comment-${rowStat.index}"
+                               th:field="${reading.questions[__${rowStat.index}__].comment}"/>
+                    </div>
+                    <div class="mb-3">
+                        <label for="question-${rowStat.index}">Question</label>
+                        <input type="text" class="form-control" id="question-${rowStat.index}"
+                               th:field="${reading.questions[__${rowStat.index}__].question}" required/>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </form>
 </div>
+
+<script th:src="@{webjars/jquery/3.5.1/jquery.min.js}" type="text/javascript"></script>
+<script th:src="@{webjars/bootstrap/5.0.0/js/bootstrap.bundle.min.js}" type="text/javascript"></script>
+<script th:src="@{/js/home.js}" type="text/javascript"></script>
 </body>
 </html>
