@@ -18,7 +18,6 @@ public class PdfController {
   @PostMapping
   @ResponseStatus(HttpStatus.OK)
   public Reading create(@RequestBody Reading reading) {
-    //TODO implement this!
     return readingService.generatePdf(reading);
   }
 

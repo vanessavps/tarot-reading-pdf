@@ -1,0 +1,81 @@
+<html lang="en">
+<head>
+    <title>Tarot Reading - Home Page</title>
+    <link href="webjars/bootstrap/5.0.0/css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="webjars/font-awesome/5.15.2/css/all.css" rel="stylesheet"/>
+
+</head>
+
+<body>
+<div class="container">
+    <h1>Tarot reading - PDF generator</h1>
+    <p>Just add the reading details and a PDF will be generated. </p>
+
+    <form>
+        <div class="reading-info">
+            <div class="mb-3">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" id="name" required/>
+            </div>
+
+            <div class="mb-3">
+                <label for="date">Date</label>
+                <input type="text" class="form-control" id="date" placeholder="dd/mm/yyyy" required/>
+            </div>
+
+            <div class="mb-3">
+                <label for="reading-photo" class="form-label">Upload the reading photo</label>
+                <input class="form-control" type="file" id="reading-photo">
+            </div>
+        </div>
+
+        <!-- Dynamic content -->
+
+        <div class="reading-questions border border-info" style="padding: 10px;">
+            <div class="questions-header">
+                Questions
+            </div>
+
+            <div class="question-group">
+            </div>
+
+            <!--Question group -->
+            <div class="question-group-template" style="display: none;">
+                <div class="question">
+                    <div class="mb-3">
+                        <label for="question">Question</label>
+                        <input type="text" class="form-control" id="question" required/>
+                    </div>
+                    <div class="mb-3">
+                        <label for="cards">Cards</label>
+                        <input type="text" class="form-control" id="cards" required/>
+                    </div>
+                    <div class="mb-3">
+                        <label for="comment">Comment</label>
+                        <textarea class="form-control" id="comment"></textarea>
+                    </div>
+
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-sm btn-danger btn-delete">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <button type="button" class="btn btn-success btn-add" id="add-question">
+                <i class="fas fa-plus"></i>
+            </button>
+
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-block">Generate PDF</button>
+
+    </form>
+</div>
+
+<script src="webjars/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
+<script src="webjars/bootstrap/5.0.0/js/bootstrap.bundle.min.js" type="text/javascript"></script>
+<script src="js/home.js" type="text/javascript"></script>
+</body>
+</html>
