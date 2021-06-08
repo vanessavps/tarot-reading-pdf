@@ -3,43 +3,48 @@
     <title>Tarot Reading - Home Page</title>
     <link href="webjars/bootstrap/5.0.0/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="webjars/font-awesome/5.15.2/css/all.css" rel="stylesheet"/>
+    <link href="css/index.css" rel="stylesheet"/>
 
 </head>
 
 <body>
-<div class="container">
-    <h1>Tarot reading - PDF generator</h1>
-    <p>Just add the reading details and a PDF will be generated. </p>
+<div class="container rounded">
+    <div class="heading">
+        <h1>Tarot reading - PDF generator
+            <span>Add tarot reading details and a beautiful PDF will be generated</span>
+        </h1>
+    </div>
 
     <form id="reading-form">
         <div class="reading-info">
             <div class="mb-3">
                 <label for="name">Name</label>
-                <input type="text" class="form-control" id="name" value="test"/>
+                <input type="text" class="form-control w-50" id="name" value="test"/>
             </div>
 
             <div class="mb-3">
                 <label for="date">Date</label>
-                <input type="text" class="form-control" id="date" placeholder="dd/mm/yyyy" value="2021-05-30"/>
+                <input type="text" class="form-control w-25" id="date" placeholder="dd/mm/yyyy" value="2021-05-30"/>
             </div>
         </div>
 
         <!-- Dynamic content -->
+        <div class="mb-3 mt-4 questions-header">
+            Questions
+        </div>
 
-        <div class="reading-questions border border-info" style="padding: 10px;">
-            <div class="questions-header">
-                Questions
-            </div>
+        <hr class="questions-divider"/>
 
-            <div class="question-group">
+        <div class="reading-questions">
+            <div class="question-group mt-3">
             </div>
 
             <!--Question group -->
             <div class="question-group-template" style="display: none;" type="">
-                <div class="question">
+                <div class="question mb-5 mt-4">
                     <div class="mb-3">
                         <label for="question">Question</label>
-                        <input type="text" class="form-control" id="question" />
+                        <input type="text" class="form-control" id="question"/>
                     </div>
                     <div class="mb-3">
                         <label for="cards">Cards</label>
@@ -47,25 +52,28 @@
                     </div>
                     <div class="mb-3">
                         <label for="comment">Comment</label>
-                        <textarea class="form-control" id="comment"></textarea>
+                        <textarea class="form-control" id="comment" rows="5"></textarea>
                     </div>
 
-                    <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-danger btn-delete">
-                            <i class="fas fa-trash"></i>
-                        </button>
-                    </div>
+                    <button type="button" class="btn btn-sm btn-danger btn-delete mb-3">
+                        Remove question
+                    </button>
+                    <hr class="question-divider"/>
                 </div>
+
             </div>
 
-            <button type="button" class="btn btn-success btn-add" id="add-question">
-                <i class="fas fa-plus"></i>
-            </button>
-
+            <div class="d-grid gap-2 col-6 mx-auto pt-3 pb-2">
+                <button type="button" class="btn btn-success btn-add" id="add-question">
+                    Add Question
+                </button>
+            </div>
         </div>
 
-        <button type="submit" class="btn btn-primary btn-block">Generate PDF</button>
 
+        <div class="d-grid gap-2 col-6 mx-auto py-4">
+            <button type="submit" class="btn btn-primary btn-block">Generate PDF</button>
+        </div>
     </form>
 </div>
 

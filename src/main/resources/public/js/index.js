@@ -2,6 +2,7 @@ let counter = 1;
 
 $(document).ready(function () {
     addQuestion();
+    initToolTip();
 
     $('#add-question').on('click', addQuestion);
 
@@ -61,5 +62,13 @@ function deleteQuestion() {
         const questionId = deleteButtonId.split('-')[1];
         $(`#question-${questionId}`).remove();
     }
+}
+
+function initToolTip() {
+    let tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+
 }
 

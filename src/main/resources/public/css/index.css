@@ -1,0 +1,121 @@
+body {
+  background-image: url("../image/tarot-bg.jpg");
+}
+.container {
+  background-color: #ffffff;
+}
+
+label {
+  font-weight: bold;
+}
+
+.questions-header {
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+}
+
+hr.questions-divider {
+  overflow: visible; /* For IE */
+  padding: 0;
+  border: none;
+  border-top: medium double #333;
+  color: #333333;
+  text-align: center;
+}
+
+hr.questions-divider:after {
+  content: "⛥";
+  display: inline-block;
+  position: relative;
+  top: -0.7em;
+  font-size: 1.5em;
+  padding: 0 0.25em;
+  background: white;
+}
+
+hr.question-divider {
+  border: 0;
+  height: 1px;
+  background: #333;
+  background-image: linear-gradient(to right, #ccc, #333, #ccc);
+}
+
+.container {
+  max-width: 750px;
+}
+
+/* === BASE HEADING === */
+
+h1 {
+  position: relative;
+  padding: 0;
+  margin: 0;
+  font-family: "Raleway", sans-serif;
+  font-weight: 300;
+  font-size: 40px;
+  color: #080808;
+  -webkit-transition: all 0.4s ease 0s;
+  -o-transition: all 0.4s ease 0s;
+  transition: all 0.4s ease 0s;
+}
+
+h1 span {
+  display: block;
+  font-size: 0.5em;
+  line-height: 1.3;
+}
+
+h1 em {
+  font-style: normal;
+  font-weight: 600;
+}
+
+.heading {
+  margin-top: 25px;
+  margin-bottom: 50px;
+  padding-top: 25px;
+}
+
+.heading h1 {
+  text-align: center;
+  color: #222;
+  font-size: 30px;
+  font-weight: 400;
+  text-transform: uppercase;
+  word-spacing: 1px;
+  letter-spacing: 2px;
+  color: #9500c5;
+}
+
+.heading h1 span {
+  line-height: 2em;
+  padding-bottom: 15px;
+  text-transform: none;
+  font-size: .7em;
+  font-weight: normal;
+  font-style: italic;
+  font-family: "Playfair Display", "Bookman", serif;
+  color: #999;
+  letter-spacing: -0.005em;
+  word-spacing: 1px;
+  letter-spacing: none;
+}
+
+.heading h1:after, .heading h1:before {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 45px;
+  height: 4px;
+  content: "";
+  right: 45px;
+  margin: auto;
+  background-color: #ccc;
+}
+
+.heading h1:before {
+  background-color: #b288bf;
+  left: 45px;
+  width: 90px;
+}
