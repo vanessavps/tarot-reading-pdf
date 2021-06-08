@@ -1,6 +1,6 @@
 package com.vanessavps.tarotreading.model;
 
-import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDate;
@@ -9,7 +9,10 @@ import java.util.List;
 
 public class Reading {
   private String name;
+
+  @DateTimeFormat(pattern = "yyyy-MM-dd")
   private LocalDate date;
+
   private MultipartFile photo;
   private List<Question> questions = new LinkedList<>();
 
@@ -43,5 +46,11 @@ public class Reading {
 
   public void setQuestions(List<Question> questions) {
     this.questions = questions;
+  }
+
+  @Override
+  public String toString() {
+    return "Reading [name=" + name + ", date=" + date +
+            ", questions=" + questions + "]";
   }
 }

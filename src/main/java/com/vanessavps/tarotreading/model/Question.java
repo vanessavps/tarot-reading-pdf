@@ -37,4 +37,10 @@ public class Question {
   public void setComment(String comment) {
     this.comment = comment;
   }
+
+  @Override
+  public String toString() {
+    return "Question [question=" + question + ", comment=" + comment +
+            ", cards=" + cards + "]";
+  }
 }

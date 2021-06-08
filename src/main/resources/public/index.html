@@ -11,21 +11,16 @@
     <h1>Tarot reading - PDF generator</h1>
     <p>Just add the reading details and a PDF will be generated. </p>
 
-    <form>
+    <form id="reading-form">
         <div class="reading-info">
             <div class="mb-3">
                 <label for="name">Name</label>
-                <input type="text" class="form-control" id="name" required/>
+                <input type="text" class="form-control" id="name" value="test"/>
             </div>
 
             <div class="mb-3">
                 <label for="date">Date</label>
-                <input type="text" class="form-control" id="date" placeholder="dd/mm/yyyy" required/>
-            </div>
-
-            <div class="mb-3">
-                <label for="reading-photo" class="form-label">Upload the reading photo</label>
-                <input class="form-control" type="file" id="reading-photo">
+                <input type="text" class="form-control" id="date" placeholder="dd/mm/yyyy" value="2021-05-30"/>
             </div>
         </div>
 
@@ -40,15 +35,15 @@
             </div>
 
             <!--Question group -->
-            <div class="question-group-template" style="display: none;">
+            <div class="question-group-template" style="display: none;" type="">
                 <div class="question">
                     <div class="mb-3">
                         <label for="question">Question</label>
-                        <input type="text" class="form-control" id="question" required/>
+                        <input type="text" class="form-control" id="question" />
                     </div>
                     <div class="mb-3">
                         <label for="cards">Cards</label>
-                        <input type="text" class="form-control" id="cards" required/>
+                        <input type="text" class="form-control" id="cards"/>
                     </div>
                     <div class="mb-3">
                         <label for="comment">Comment</label>
@@ -76,6 +71,7 @@
 
 <script src="webjars/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
 <script src="webjars/bootstrap/5.0.0/js/bootstrap.bundle.min.js" type="text/javascript"></script>
-<script src="js/home.js" type="text/javascript"></script>
+<script src="js/api-call.js" type="text/javascript"></script>
+<script src="js/index.js" type="text/javascript"></script>
 </body>
 </html>
