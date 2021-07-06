@@ -14,10 +14,7 @@ $(document).ready(function () {
         //TODO validation
         //validate()
 
-        //TODO post
         const reading = createQuestionsObject();
-        console.log(reading);
-
         generatePdf(reading);
     });
 });
@@ -32,7 +29,9 @@ function createQuestionsObject() {
         if ($(this).attr('id')) {
             const question = {};
             question.question = $(this).find('#question').val();
-            question.cards = [$(this).find('#cards').val()];
+
+            let cardsText = $(this).find('#cards').val();
+            question.cards = cardsText.split(',').map(item => item.trim());
             question.comment = $(this).find('#comment').val();
             questions.push(question);
         }
@@ -43,8 +42,9 @@ function createQuestionsObject() {
 }
 
 function generatePdf(reading) {
-    post('api/generate-pdf', reading).done((data) => {
-        console.log(data);
+    post('api/reading', reading).done((data) => {
+        let win = window.open("reading-pdf.html", "_blank");
+        win.focus();
     });
 }
 
@@ -65,10 +65,10 @@ function deleteQuestion() {
 }
 
 function initToolTip() {
-    let tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    let tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
     tooltipTriggerList.map(function (tooltipTriggerEl) {
-        return new bootstrap.Tooltip(tooltipTriggerEl)
-    })
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
 
 }
 

@@ -14,9 +14,15 @@ public class PdfController {
   @Autowired
   public PdfController(PdfService pdfService) {this.pdfService = pdfService;}
 
-  @PostMapping(path = "generate-pdf")
+  @PostMapping(path = "reading")
   @ResponseStatus(HttpStatus.OK)
-  public Reading create(@RequestBody Reading reading) {
-    return pdfService.generatePdf(reading);
+  public Reading save(@RequestBody Reading reading) {
+    return pdfService.save(reading);
+  }
+
+  @GetMapping(path = "reading")
+  @ResponseStatus(HttpStatus.OK)
+  public Reading get() {
+    return pdfService.getReading();
   }
 }

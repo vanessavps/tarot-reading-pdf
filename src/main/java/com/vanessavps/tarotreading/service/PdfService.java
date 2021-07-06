@@ -5,21 +5,18 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class PdfService {
-  final TemplateResolverService templateResolverService;
+  private Reading reading;
 
-  public PdfService(TemplateResolverService templateResolverService) {this.templateResolverService = templateResolverService;}
+  public PdfService() {}
 
-  //TODO implement this!
-  public Reading generatePdf(Reading reading) {
-    System.out.println(reading);
-    String parsedTemplate = templateResolverService.parseReadingPdfTemplate(reading);
-    try {
-      templateResolverService.generatePdfFromHtml(parsedTemplate);
-    } catch (Exception e) {
-      System.out.println("Something was wrong! " + e.getMessage());
-    }
+  //TODO implement this
+  public Reading save(Reading reading) {
+    this.reading = reading;
     return reading;
   }
+
+  //TODO implement this
+  public Reading getReading() { return this.reading; }
 
 
 }
