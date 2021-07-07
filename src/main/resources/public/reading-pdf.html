@@ -27,16 +27,16 @@
     </div>
 
     <hr class="questions-divider"/>
+    <div class="questions-title text-center">Questions</div>
 
     <div class="questions">
         {{#each questions}}
             <div class="question-detail">
-                <h4 class="question">{{this.question}}</h4>
-                <h5 class="cards">
-                    {{#each this.cards}}
-                        {{this}},
-                    {{/each}}
-                </h5>
+                <div class="question">{{this.question}}</div>
+                <div class="cards">
+                    {{#list this.cards}}
+                    {{/list}}
+                </div>
                 <div class="comment">{{this.comment}}</div>
             </div>
         {{/each}}

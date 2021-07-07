@@ -9,19 +9,22 @@
 
 .heading {
   margin: 10px 0 10px 0;
-  color: #6b26ab;
 }
 
 .heading .reading-detail {
-  font-size: 1.3em;
+  font-size: 1.5em;
+  color: #4c4b4b;
 }
 
 .question {
-  margin: 10px 0 10px 0;
+  margin-top: 10px;
+  font-size: 1.5em;
+  color: #9500c5;
 }
 
 .cards {
-  font-size: 1.3em;
+  font-size: 1.1em;
+  color: #0cbfb7;
 }
 
 .question-detail {
@@ -29,17 +32,19 @@
 }
 
 .questions-title {
-  margin: 50px;
+  margin: 25px;
+  color: #9500c5;
+  font-size: 1.5em;
 }
 
 hr.questions-divider {
   overflow: visible; /* For IE */
   padding: 0;
   border: none;
-  border-top: medium double #9500c5;
-  color: #9500c5;
+  border-top: medium double #0cbfb7;
+  color: #0cbfb7;
   text-align: center;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 hr.questions-divider:after {
