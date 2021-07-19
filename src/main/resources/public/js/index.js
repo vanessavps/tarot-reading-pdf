@@ -2,7 +2,6 @@ let counter = 1;
 
 $(document).ready(function () {
     addQuestion();
-    initToolTip();
 
     $('#add-question').on('click', addQuestion);
 
@@ -11,13 +10,35 @@ $(document).ready(function () {
     $('#reading-form').on('submit', function (e) {
         e.preventDefault();
 
-        //TODO validation
-        //validate()
-
-        const reading = createQuestionsObject();
-        generatePdf(reading);
+        if (formIsValid()) {
+            const reading = createQuestionsObject();
+            generatePdf(reading);
+        }
     });
 });
+
+function cleanFormValidation() {
+    $('input.is-invalid').removeClass('is-invalid');
+}
+
+function formIsValid() {
+    cleanFormValidation();
+    //Validate date format
+    const date = $('#date');
+    const dateIsValid = moment(date.val(), 'YYYY/MM/DD', true).isValid();
+
+    if (!dateIsValid) {
+        date.addClass('is-invalid');
+    }
+
+    $('#reading-form').find('input[required]').each(function () {
+        if (!$(this).val()) {
+            $(this).addClass('is-invalid');
+        }
+    });
+
+    return $('input.is-invalid').length === 0;
+}
 
 function createQuestionsObject() {
     let reading = {};
@@ -43,7 +64,7 @@ function createQuestionsObject() {
 
 function generatePdf(reading) {
     post('api/reading', reading).done((data) => {
-        let win = window.open("reading-pdf.html", "_blank");
+        let win = window.open('reading-pdf.html', '_blank');
         win.focus();
     });
 }
@@ -62,13 +83,5 @@ function deleteQuestion() {
         const questionId = deleteButtonId.split('-')[1];
         $(`#question-${questionId}`).remove();
     }
-}
-
-function initToolTip() {
-    let tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
-    tooltipTriggerList.map(function (tooltipTriggerEl) {
-        return new bootstrap.Tooltip(tooltipTriggerEl);
-    });
-
 }
 

@@ -1,5 +1,6 @@
 package com.vanessavps.tarotreading.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -10,7 +11,8 @@ import java.util.List;
 public class Reading {
   private String name;
 
-  @DateTimeFormat(pattern = "yyyy-MM-dd")
+  @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME)
+  @JsonFormat(pattern = "yyyy/MM/dd")
   private LocalDate date;
 
   private MultipartFile photo;
