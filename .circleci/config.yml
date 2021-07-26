@@ -27,7 +27,6 @@ jobs:
           name: Test
           command: mvn test
       - codecov/upload:
-          conf: .codecov/.codecov.yml
           token: CODECOV_TOKEN
 
 workflows:
