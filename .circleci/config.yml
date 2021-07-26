@@ -3,7 +3,7 @@
 version: 2.1
 
 orbs:
-  heroku: circleci/heroku@0.0.10. # Invoke the Heroku orb
+  heroku: circleci/heroku@1.2.6 # Invoke the Heroku orb
 
 jobs:
   # Below is the definition of your job to build and test your app, you can rename and customize it as you want.
