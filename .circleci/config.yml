@@ -28,7 +28,6 @@ jobs:
           command: mvn test
       - codecov/upload:
           conf: .codecov/.codecov.yml
-          token: ${CODECOV_TOKEN}
 
 workflows:
   heroku_deploy:
