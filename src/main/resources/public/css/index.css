@@ -5,14 +5,45 @@ body {
   background-color: #ffffff;
 }
 
-label {
-  font-weight: bold;
+.row .form-floating>label {
+  padding-left: 1.5em;
 }
 
 .questions-header {
   font-size: 20px;
   font-weight: bold;
   text-align: center;
+}
+
+textarea#comment {
+  height: 100px;
+}
+
+.fa-minus {
+  color: #ff0000;
+  padding-right: 10px;
+}
+
+.fa-plus {
+  color: #49a372;
+  padding-right: 10px;
+}
+
+.fa-file-pdf {
+  color: #2d2d76;
+  padding-right: 10px;
+}
+
+.container button {
+  border: 0.2em dotted #c1c1c1;
+}
+
+#question-1 .btn-delete {
+  display:none;
+}
+
+#question-1 .comment-area {
+  padding-bottom: 30px;
 }
 
 hr.questions-divider {

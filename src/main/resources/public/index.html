@@ -17,15 +17,14 @@
 
     <form id="reading-form" class="p-3" novalidate>
         <div class="row mb-5">
-            <div class="col-8">
+            <div class="form-floating col-8">
                 <input type="text" class="form-control" id="name" placeholder="Name" required/>
-                <div class="invalid-feedback">
-                    Please choose a name
-                </div>
+                <label for="name">Name (required)</label>
             </div>
 
-            <div class="col-4">
+            <div class="form-floating col-4">
                 <input type="text" class="form-control" id="date" placeholder="yyyy/mm/dd"/>
+                <label for="date">Date (required)</label>
                 <div class="invalid-feedback">
                     Date format is YYYY/MM/DD
                 </div>
@@ -44,16 +43,18 @@
             </div>
 
 
-            <div class="d-grid gap-2 col-6 mx-auto pt-3 pb-2">
-                <button type="button" class="btn btn-success btn-add" id="add-question">
-                    Add Question
+            <div class="d-grid gap-2 col-5 mx-auto pt-3 pb-2">
+                <button type="button" class="btn white btn-add btn-sm" id="add-question">
+                    <i class="fas fa-plus"></i> Add Question
                 </button>
             </div>
         </div>
 
 
-        <div class="d-grid gap-2 col-6 mx-auto py-4">
-            <button type="submit" class="btn btn-primary btn-block">Generate PDF</button>
+        <div class="d-grid gap-2 col-5 mx-auto py-4">
+            <button type="submit" class="btn white btn-block btn-sm">
+                <i class="far fa-file-pdf"></i> Generate PDF
+            </button>
         </div>
     </form>
 </div>
@@ -61,19 +62,22 @@
 <!--Question group -->
 <div class="question-group-template" style="display: none;" type="">
     <div class="question mb-5 mt-4">
-        <div class="mb-3">
+        <div class="form-floating mb-3">
             <input type="text" class="form-control" id="question" placeholder="Question" required/>
+            <label for="question">Question (required)</label>
         </div>
-        <div class="mb-3">
-            <input type="text" class="form-control" id="cards" placeholder="Card names separated by comma"
+        <div class="form-floating mb-3">
+            <input type="text" class="form-control" id="cards" placeholder="The Magician, King of Pentacles"
                    required/>
+            <label for="cards">Cards separated by comma (required)</label>
         </div>
-        <div class="mb-3">
-            <textarea class="form-control" id="comment" rows="5" placeholder="Comment"></textarea>
+        <div class="form-floating comment-area mb-3">
+            <textarea class="form-control" id="comment" placeholder="Comment"></textarea>
+            <label for="comment">Comment</label>
         </div>
 
-        <button type="button" class="btn btn-sm btn-danger btn-delete mb-3">
-            Remove question
+        <button type="button" class="btn btn-sm white btn-delete mb-3">
+            <i class="fas fa-minus"></i> Remove question
         </button>
         <hr class="question-divider"/>
     </div>
