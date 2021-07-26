@@ -26,8 +26,7 @@ jobs:
       - run:
           name: Test
           command: mvn test
-      - codecov/upload:
-          token: CODECOV_TOKEN
+      - codecov/upload
 
 workflows:
   heroku_deploy:
@@ -39,6 +38,3 @@ workflows:
           filters:
             branches:
               only: main
-  upload-to-codecov:
-    jobs:
-      - codecov/upload
