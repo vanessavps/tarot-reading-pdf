@@ -21,8 +21,6 @@ jobs:
           command: 'mvn test'
       - codecov/upload:
           conf: .codecov/.codecov.yml
-      - store_artifacts:
-          path: target/artifact
 
 workflows:
   heroku_deploy:
