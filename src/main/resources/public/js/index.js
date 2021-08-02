@@ -1,6 +1,12 @@
 let counter = 1;
 
 $(document).ready(function () {
+    $(".datepicker").datepicker({
+        dateFormat: "yy/mm/dd",
+        changeYear: true,
+        changeMonth: true
+    });
+
     addQuestion();
 
     $('#add-question').on('click', addQuestion);
