@@ -4,7 +4,7 @@ version: 2.1
 
 orbs:
   heroku: circleci/heroku@1.2.6 # Invoke the Heroku orb
-  codecov: codecov/codecov@1.2.5 #Invoke the Codecov orb
+  codecov: codecov/codecov@1.0.5 #Invoke the Codecov orb
 
 jobs:
   build-and-test:
